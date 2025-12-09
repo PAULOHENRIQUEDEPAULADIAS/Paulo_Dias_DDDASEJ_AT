@@ -1,7 +1,7 @@
 package com.example.PetFriends_Transporte.event;
 
-import com.example.PetFriends_Almoxarifado.model.OutboxEvent;
-import com.example.PetFriends_Almoxarifado.repository.OutboxRepository;
+import com.example.PetFriends_Transporte.model.OutboxEvent;
+import com.example.PetFriends_Transporte.repository.OutboxRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;

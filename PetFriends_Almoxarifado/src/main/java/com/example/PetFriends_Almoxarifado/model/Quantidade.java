@@ -1,8 +1,13 @@
 package com.example.PetFriends_Almoxarifado.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
 import java.util.Objects;
 
+@Embeddable
 public class Quantidade {
+    @Column(name = "valor")
     private final int valor;
 
     public Quantidade(int valor) {

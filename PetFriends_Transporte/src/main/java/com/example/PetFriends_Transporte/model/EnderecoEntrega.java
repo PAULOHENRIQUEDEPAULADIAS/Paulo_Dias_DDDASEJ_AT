@@ -1,7 +1,10 @@
 package com.example.PetFriends_Transporte.model;
 
+import jakarta.persistence.Embeddable;
+
 import java.util.Objects;
 
+@Embeddable
 public class EnderecoEntrega {
 
     private final String rua;

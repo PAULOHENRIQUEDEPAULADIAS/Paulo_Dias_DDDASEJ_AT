@@ -1,5 +1,6 @@
 package com.example.PetFriends_Almoxarifado.service;
 
+import com.example.PetFriends_Almoxarifado.DTO.PedidoCriadoDTO;
 import com.example.PetFriends_Almoxarifado.event.EstoqueItem;
 import com.example.PetFriends_Almoxarifado.model.OutboxEvent;
 import com.example.PetFriends_Almoxarifado.model.DomainEvent;
@@ -7,6 +8,7 @@ import com.example.PetFriends_Almoxarifado.repository.EstoqueRepository;
 import com.example.PetFriends_Almoxarifado.repository.OutboxRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.transaction.Transactional;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -38,5 +40,17 @@ public class AlmoxarifadoApplicationService {
             outboxRepo.save(out);
         }
         // commit aqui
+    }
+
+    @KafkaListener(topics = "pedidos-criados", groupId = "almoxarifado-group")
+    @Transactional
+    public void onPedidoCriado(String messageJson) {
+        try {
+            PedidoCriadoDTO dto = objectMapper.readValue(messageJson, PedidoCriadoDTO.class);
+            reservarEstoque(dto.getProductId(), dto.getPedidoId(), dto.getQuantidade());
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao processar evento de pedido criado", e);
+        }
     }
 }

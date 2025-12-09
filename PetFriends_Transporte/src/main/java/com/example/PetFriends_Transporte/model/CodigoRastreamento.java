@@ -1,9 +1,14 @@
 package com.example.PetFriends_Transporte.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
 import java.util.Objects;
 
+@Embeddable
 public class CodigoRastreamento {
 
+    @Column(name = "codigo_rastreamento")
     private final String valor;
 
     public CodigoRastreamento(String valor) {

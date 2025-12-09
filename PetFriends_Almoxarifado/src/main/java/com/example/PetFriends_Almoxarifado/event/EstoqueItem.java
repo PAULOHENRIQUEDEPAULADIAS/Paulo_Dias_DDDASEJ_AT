@@ -2,14 +2,28 @@ package com.example.PetFriends_Almoxarifado.event;
 
 import com.example.PetFriends_Almoxarifado.model.AggregateRoot;
 import com.example.PetFriends_Almoxarifado.model.Quantidade; // ALTERAÇÃO: Importar value object para consistência.
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
+@Entity
+@Table(name = "estoque_item")
 public class EstoqueItem extends AggregateRoot {
 
+    @Id
     private final UUID id;
     private final UUID productId;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "valor", column = @Column(name = "quantidade_total"))
+    })
     private Quantidade quantidadeTotal;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "valor", column = @Column(name = "quantidade_reservada"))
+    })
     private Quantidade quantidadeReservada;
 
     public EstoqueItem(UUID id, UUID productId, int quantidadeInicial) {

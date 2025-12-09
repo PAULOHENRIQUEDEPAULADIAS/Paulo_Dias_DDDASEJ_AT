@@ -3,16 +3,26 @@ package com.example.PetFriends_Transporte.model;
 import com.example.PetFriends_Transporte.event.EntregaDespachadaEvent;
 import com.example.PetFriends_Transporte.event.EntregaEntregueEvent;
 import com.example.PetFriends_Transporte.event.EntregaExtraviadaEvent;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
+@Table(name = "entregas")
 public class Entrega extends AggregateRoot {
 
+    @Id
     private final UUID id;
     private final UUID pedidoId;
+
+    @Enumerated(EnumType.STRING)
     private EstadoEntrega estado;
+
+    @Embedded
     private CodigoRastreamento codigoRastreamento;
+
+    @Embedded
     private EnderecoEntrega enderecoEntrega;
     private LocalDateTime dataDespacho;
     private LocalDateTime dataEntrega;

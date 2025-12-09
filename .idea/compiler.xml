@@ -7,11 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PetFriends_Transporte" />
-      </profile>
-      <profile name="Annotation profile for PetFriends_Almoxarifado" enabled="true">
-        <sourceOutputDir name="PetFriends_Almoxarifado/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="PetFriends_Almoxarifado/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="PetFriends_Almoxarifado" />
       </profile>
     </annotationProcessing>
