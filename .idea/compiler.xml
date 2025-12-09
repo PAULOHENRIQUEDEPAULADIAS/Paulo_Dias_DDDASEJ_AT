@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PetFriends_Transporte" />
+      </profile>
+      <profile name="Annotation profile for PetFriends_Almoxarifado" enabled="true">
+        <sourceOutputDir name="PetFriends_Almoxarifado/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="PetFriends_Almoxarifado/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PetFriends_Almoxarifado" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Paulo_Dias_DDDASEJ_AT" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PetFriends_Almoxarifado" options="-parameters" />
+      <module name="PetFriends_Transporte" options="-parameters" />
+    </option>
+  </component>
+</project>
